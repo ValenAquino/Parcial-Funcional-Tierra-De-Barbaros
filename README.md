@@ -1,6 +1,6 @@
 # Parcial Funcional Tierra De Barbaros
 
-Tierra de Bárbaros 
+### Tierra de Bárbaros 
 
 Rechapos! - En la tierra de Udrogoth los reyes bárbaros formaron un imperio de guerreros, dragones y magia. Ahora marcharon a la guerra contra el mal y dejaron a sus herederos a cargo.... y bueno, hay que conformarse.
 Sin embargo, nos encargaron confeccionar un programa en Haskell para manejar los asuntos del reino, y evitar así el tener que gobernar.
@@ -11,7 +11,7 @@ Emplear sinónimos de tipo cuando sea posible.
 No se permite usar recursividad salvo que se indique lo contrario
 Definir las funciones en estilo point-free cuando sea posible
 
-Punto 1
+### Punto 1
 
 Se sabe que los bárbaros tienen nombre, fuerza, habilidades y objetos, que los ayudarán más adelante en su lucha contra el mal. Por ejemplo: 
 
@@ -24,7 +24,7 @@ Las varitasDefectuosas, añaden la habilidad de hacer magia, pero desaparecen to
 Una ardilla, que no hace nada.
 Una cuerda, que combina dos objetos distintos, obteniendo uno que realiza las transformaciones de los otros dos.
 
-Punto 2
+### Punto 2
 
 El megafono es un objeto que potencia al bárbaro, concatenando sus habilidades y poniéndolas en mayúsculas. 
 
@@ -33,7 +33,7 @@ El megafono es un objeto que potencia al bárbaro, concatenando sus habilidades 
 
 Sabiendo esto, definir al megafono, y al objeto megafonoBarbarico, que está formado por una cuerda, una ardilla y un megáfono. 
 
-Punto 3 - Aventuras 
+### Punto 3 - Aventuras 
 
 Los bárbaros suelen ir de aventuras por el reino luchando contra las fuerzas del mal, pero ahora que tienen nuestra ayuda, quieren que se les diga si un grupo de bárbaros puede sobrevivir a cierta aventura.  Una aventura se compone de uno o más eventos, por ejemplo:
 
@@ -50,7 +50,7 @@ Definir la función sobrevivientes que tome una lista de bárbaros y una aventur
 
 Nota: Ojo que ritualDeFechorias y sobrevivientes no son tan diferentes ¡No debe haber lógica repetida entre estas funciones!
 
-Punto 4 - Dinastía
+### Punto 4 - Dinastía
 
 A - Los bárbaros se marean cuando tienen varias habilidades iguales. Por todo esto, nos piden desarrollar una función que elimine los elementos repetidos de una lista (sin utilizar nub ni nubBy)
 
