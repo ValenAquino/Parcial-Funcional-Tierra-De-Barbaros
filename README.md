@@ -40,9 +40,9 @@ Los bárbaros suelen ir de aventuras por el reino luchando contra las fuerzas de
 - **invasionDeSuciosDuendes:** Un bárbaro sobrevive si sabe “Escribir Poesía Atroz”
 - **cremalleraDelTiempo:** Un bárbaro sobrevive si no tiene pulgares. Los bárbaros llamados Faffy y Astro no tienen pulgares, los demás sí. 
 - **ritualDeFechorias:** Un bárbaro puede sobrevivir si pasa una o más pruebas como las siguientes: 
-- - **saqueo:** El bárbaro debe tener la habilidad de robar y tener más de 80 de fuerza.
-- - **gritoDeGuerra:** El bárbaro debe tener un poder de grito de guerra mayor o igual a la cantidad de letras de sus habilidades. Este poder es igual a 4 veces la cantidad de objetos del bárbaro.
-- - **caligrafia:** El bárbaro tiene caligrafía perfecta (para el estándar barbárico de la época) si sus habilidades contienen más de 3 vocales y comienzan con mayúscula.
+ - **saqueo:** El bárbaro debe tener la habilidad de robar y tener más de 80 de fuerza.
+ - **gritoDeGuerra:** El bárbaro debe tener un poder de grito de guerra mayor o igual a la cantidad de letras de sus habilidades. Este poder es igual a 4 veces la cantidad de objetos del bárbaro.
+ - **caligrafia:** El bárbaro tiene caligrafía perfecta (para el estándar barbárico de la época) si sus habilidades contienen más de 3 vocales y comienzan con mayúscula.
 
 Sabiendo esto, se pide:
 - Definir los eventos, modelar las aventuras y dar un ejemplo. 
