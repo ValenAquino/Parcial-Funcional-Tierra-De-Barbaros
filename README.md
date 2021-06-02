@@ -65,7 +65,7 @@ El descendiente de un bárbaro comparte su nombre, y un asterisco por cada gener
 
 Además, tienen en principio su mismo poder, habilidades sin repetidos, y los objetos de su padre, pero antes de pasar a la siguiente generación, utilizan (aplican sobre sí mismos) los objetos. Por ejemplo, el hijo de Dave será equivalente a:
 
-(ardilla.libroPedKing) ("Dave*", 100, ["tejer","escribirPoesia"], [ardilla, libroPedKing]
+>(ardilla.libroPedKing) ("Dave*", 100, ["tejer","escribirPoesia"], [ardilla, libroPedKing]
 
 
 - Definir la función descendientes, que dado un bárbaro nos de sus infinitos descendientes. 
