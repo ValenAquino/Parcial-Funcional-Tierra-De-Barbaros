@@ -36,7 +36,7 @@ ardilla :: Object
 ardilla = id
 
 cuerda :: Object -> Object -> Object
-cuerda object1 object2 = object1 . object2
+cuerda = (.)
 
 
 -- Punto 2
@@ -91,7 +91,7 @@ tieneTresVocalesYempiezaConMayuscula :: String ->  Bool
 tieneTresVocalesYempiezaConMayuscula habilidad = tieneTresVocales habilidad && empiezaConMayuscula habilidad
 
 tieneTresVocales :: String -> Bool
-tieneTresVocales =  (== 3) . length . filter (`elem` lasVocales)
+tieneTresVocales = (== 3) . length . filter (`elem` lasVocales)
 
 empiezaConMayuscula :: String ->  Bool
 empiezaConMayuscula = isUpper.head
@@ -104,6 +104,25 @@ sobrevivientes = filter
 
 -- Punto 4
 
-sinRepetidos :: Barbarian -> Barbarian
-sinRepetidos barbarian =  barbarian { skills = skills barbarian}
+sinRepetidosRecursiva :: Barbarian -> Barbarian
+sinRepetidosRecursiva barbarian = barbarian { skills = descartarRepetidos (skills barbarian) }
 
+descartarRepetidos :: [Skill] -> [Skill]
+descartarRepetidos [] = []
+descartarRepetidos (habilidad : habilidades)
+ | habilidad `elem` habilidades = descartarRepetidos habilidades
+ | otherwise = habilidad : descartarRepetidos habilidades
+
+sinRepetidos :: [String] -> [String]
+sinRepetidos = foldl (\habilidades habilidad -> habilidades ++ agregarSiNoEsta habilidad habilidades ) []
+
+agregarSiNoEsta :: String -> [String] -> [String]
+agregarSiNoEsta habilidad habilidades
+ | habilidad `elem` habilidades = []
+ | otherwise = [habilidad]
+
+--sinRepetidos :: [Skill] -> [Skill]
+--sinRepetidos = filter (\)
+
+-- >>> sinRepetidos ["Hola", "Hola", "Chau", "Chau", "Martes", "Hola", "Chau","Hola", "Chau","Hola", "Chau","Hola", "Chau", "Jueves"]
+-- ["Hola","Chau","Martes","Jueves"]
