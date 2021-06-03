@@ -63,13 +63,11 @@ invasionDeSuciosDuendes = condicionDeSupervivencia [escribePoesiaAtroz]
 escribePoesiaAtroz :: Evento
 escribePoesiaAtroz barbaros =  "Escribir Poesía Atroz" `elem` skills barbaros
 
-
 cremalleraDelTiempo :: Aventura
 cremalleraDelTiempo = condicionDeSupervivencia [tenerPulgares]
 
 tenerPulgares :: Evento
 tenerPulgares barbarian = name barbarian == "Faffy" || name barbarian == "Astro"
-
 
 ritualDeFechorias :: Aventura
 ritualDeFechorias = condicionDeSupervivencia [saqueo, gritoDeGuerra, caligrafia]
@@ -100,4 +98,12 @@ empiezaConMayuscula = isUpper.head
 
 lasVocales :: [Char]
 lasVocales = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+
+sobrevivientes :: Aventura -> [Barbarian] -> [Barbarian]
+sobrevivientes = filter
+
+-- Punto 4
+
+sinRepetidos :: Barbarian -> Barbarian
+sinRepetidos barbarian =  barbarian { skills = skills barbarian}
 

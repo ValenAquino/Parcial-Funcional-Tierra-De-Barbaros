@@ -58,14 +58,9 @@ correrTests = hspec $ do
          ritualDeFechorias dave{skills = ["tejer", "ver"]} `shouldBe` True
       it "Dave el barbaro correcto sobrevive al ritual desde que mejoró su ortografía" $ do
          ritualDeFechorias dave{skills = ["Cocinar", "Estudiar"]} `shouldBe` True
-
-    describe "" $ do
-      it "" $ do
-         2+2 `shouldBe`  4
-    describe "" $ do
-      it "" $ do
-         2+2 `shouldBe`  4
-
+    describe "Sobrevivientes" $ do
+      it "El unico sobreviviente a cremallera del tiempo es Fuffy" $ do
+         sobrevivientes cremalleraDelTiempo  [dave, dave{name = "Faffy"}] `shouldBe`  [dave{name="Faffy"}]
 
  describe "Punto 4" $ do
     describe "" $ do
