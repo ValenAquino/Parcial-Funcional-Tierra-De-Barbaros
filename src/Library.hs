@@ -105,7 +105,7 @@ sobrevivientes = filter
 -- Punto 4
 
 sinRepetidosRecursiva :: Barbarian -> Barbarian
-sinRepetidosRecursiva barbarian = barbarian { skills = descartarRepetidos (skills barbarian) }
+sinRepetidosRecursiva barbarian = barbarian { skills = sinRepetidos (skills barbarian) }
 
 descartarRepetidos :: [Skill] -> [Skill]
 descartarRepetidos [] = []
@@ -113,16 +113,45 @@ descartarRepetidos (habilidad : habilidades)
  | habilidad `elem` habilidades = descartarRepetidos habilidades
  | otherwise = habilidad : descartarRepetidos habilidades
 
-sinRepetidos :: [String] -> [String]
+sinRepetidos :: [Skill] -> [Skill]
 sinRepetidos = foldl (\habilidades habilidad -> habilidades ++ agregarSiNoEsta habilidad habilidades ) []
 
-agregarSiNoEsta :: String -> [String] -> [String]
+agregarSiNoEsta :: Skill -> [Skill] -> [Skill]
 agregarSiNoEsta habilidad habilidades
  | habilidad `elem` habilidades = []
  | otherwise = [habilidad]
 
---sinRepetidos :: [Skill] -> [Skill]
---sinRepetidos = filter (\)
-
 -- >>> sinRepetidos ["Hola", "Hola", "Chau", "Chau", "Martes", "Hola", "Chau","Hola", "Chau","Hola", "Chau","Hola", "Chau", "Jueves"]
 -- ["Hola","Chau","Martes","Jueves"]
+
+
+-- accessors --
+mapNombre :: (String -> String) -> Barbarian -> Barbarian
+mapNombre f unBarbaro = unBarbaro { name = f . name $ unBarbaro }
+
+mapFuerza :: (Number -> Number) -> Barbarian -> Barbarian
+mapFuerza f unBarbaro = unBarbaro { strength = f . strength $ unBarbaro }
+
+mapHabilidades :: ([String] -> [String]) -> Barbarian -> Barbarian
+mapHabilidades f unBarbaro = unBarbaro { skills = f . skills $ unBarbaro }
+
+mapObjetos :: ([Object] -> [Object]) -> Barbarian -> Barbarian
+mapObjetos f unBarbaro = unBarbaro { objects = f . objects $ unBarbaro }
+-- accessors --
+
+descendiente :: Barbarian -> Barbarian
+descendiente = mantenerObjetos.aplicarObjetos.cambiarNombre
+
+descendientes :: Barbarian -> [Barbarian]
+descendientes = iterate descendiente
+
+cambiarNombre :: Barbarian -> Barbarian
+cambiarNombre = mapNombre (++ "*")
+
+aplicarObjetos :: Barbarian -> Barbarian
+aplicarObjetos barbaroBase = last (foldl (\barbaro objeto -> barbaro ++ [objeto (last barbaro)]) [barbaroBase] (objects barbaroBase))
+
+mantenerObjetos :: Barbarian -> Barbarian
+mantenerObjetos barbaro = barbaro { objects = objects barbaro}
+
+

@@ -67,10 +67,5 @@ correrTests = hspec $ do
       it "" $ do
          2+2 `shouldBe`  4
 
- describe "Punto 4" $ do
-    describe "" $ do
-      it "" $ do
-         2+2 `shouldBe`  4
-
 escribime :: Expectation
 escribime = implementame
